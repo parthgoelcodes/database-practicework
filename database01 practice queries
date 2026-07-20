@@ -23,3 +23,40 @@ SELECT *
 FROM employees
 WHERE salary BETWEEN 40000 and 60000;
 
+SELECT emp_name,city,salary
+FROM employees
+WHERE department_id IN (1,4);
+
+SELECT *
+FROM employees
+WHERE salary BETWEEN 40000 and 60000;
+
+SELECT emp_name,city,department_id
+FROM employees
+WHERE department_id != 2;
+
+SELECT department_id,COUNT(emp_name)
+FROM employees
+group by department_id;
+
+SELECT city , AVG(salary)
+FROM employees
+GROUP BY city;
+
+SELECT department_id , AVG(salary)
+FROM employees
+GROUP BY department_id;
+
+SELECT department_id , MAX(salary) , MIN(salary)
+FROM employees
+GROUP BY department_id;
+
+SELECT department_id , SUM(salary)
+FROM employees
+GROUP BY department_id;
+
+SELECT city,count(emp_name)
+FROM employees
+GROUP BY city
+HAVING  count(emp_name)>=2;
+
