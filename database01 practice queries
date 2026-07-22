@@ -60,3 +60,39 @@ FROM employees
 GROUP BY city
 HAVING  count(emp_name)>=2;
 
+SELECT emp_name,salary
+FROM employees
+WHERE salary = (
+  SELECT MAX(salary)
+  FROM employees);
+
+SELECT *
+FROM orders
+WHERE amount = ( SELECT MAX(amount)
+          FROM orders);
+
+SELECT product_name,price
+FROM products
+WHERE price = (SELECT MIN(price)
+FROM products);
+
+SELECT customer_name , city , age
+FROM customers
+WHERE age = (SELECT MAX(age)
+FROM customers);
+
+SELECT *
+FROM orders
+WHERE amount =(SELECT AVG(amount)
+  FROM orders);
+  
+SELECT emp_name,salary,city
+FROM employees
+WHERE salary<(SELECT AVG(salary)
+FROM employees);
+
+SELECT project_name as project ,budget as prices
+FROM projects
+WHERE budget>(SELECT AVG(budget)
+FROM projects);
+
