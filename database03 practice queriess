@@ -1,0 +1,37 @@
+SELECT product_name,price,
+MAX(price)
+OVER()
+FROM products;
+
+SELECT product_name,price,MIN(price)
+OVER() AS LOWEST_PRICE
+FROM products;
+
+SELECT order_id,quantity,SUM(quantity)
+OVER() AS total_quqntity
+FROM orders;
+
+SELECT product_name,category,price,AVG(price)
+OVER(PARTITION BY category)
+FROM products;
+
+SELECT product_name,
+category,
+price,
+MAX(price)
+OVER(PARTITION BY category) AS highest_price
+FROM products;
+
+SELECT product_name,
+category,
+price,
+MIN(price)
+OVER(PARTITION BY category ) as LOWEST_PRICE
+FROM products;
+
+SELECT product_name,
+category,
+price,
+SUM(price)
+OVER(PARTITION BY category) as category_total_price
+FROM products;
