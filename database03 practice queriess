@@ -35,3 +35,15 @@ price,
 SUM(price)
 OVER(PARTITION BY category) as category_total_price
 FROM products;
+
+ WITH expensive_products AS (
+    SELECT *
+    FROM products
+    WHERE price > 3000
+)
+SELECT *
+FROM expensive_products;
+SELECT *
+    FROM products
+    WHERE price > 3000;
+drop database jmit;
