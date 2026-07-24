@@ -1,0 +1,46 @@
+SELECT branch, COUNT(*) AS total_students
+FROM marks
+GROUP BY branch;
+
+SELECT branch, SUM(marks) AS total_marks
+FROM marks
+GROUP BY branch;
+
+SELECT branch, AVG(marks) AS average_marks
+FROM marks
+GROUP BY branch;
+
+SELECT branch, MAX(marks) AS highest_marks
+FROM marks
+GROUP BY branch;
+
+SELECT branch, MIN(marks) AS lowest_marks
+FROM marks
+GROUP BY branch;
+
+SELECT branch, AVG(marks) AS average_marks
+FROM marks
+GROUP BY branch
+HAVING AVG(marks) > 75;
+
+SELECT branch, COUNT(*) AS total_students
+FROM marks
+GROUP BY branch
+HAVING COUNT(*) >= 3;
+
+SELECT branch, COUNT(*) AS students_above_80
+FROM marks
+WHERE marks >= 80
+GROUP BY branch;
+
+SELECT branch,
+       SUM(marks) AS total_marks,
+       AVG(marks) AS average_marks
+FROM marks
+GROUP BY branch;
+
+SELECT branch,
+       AVG(marks) AS average_marks
+FROM marks
+GROUP BY branch
+ORDER BY average_marks DESC;
