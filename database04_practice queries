@@ -1,0 +1,38 @@
+SELECT * FROM customers;
+
+SELECT * 
+FROM customers
+WHERE age > 25;
+
+SELECT * FROM products;
+
+SELECT * 
+FROM products
+ORDER BY price;
+
+SELECT *
+FROM products
+ORDER BY price desc 
+LIMIT 5;
+
+SELECT DISTINCT state 
+FROM customers;
+
+SELECT *
+FROM customers
+WHERE customer_name LIKE '%I%';
+
+SELECT *
+FROM products
+WHERE price BETWEEN 1000 AND 5000;
+
+SELECT *
+FROM customers
+WHERE city IN ('delhi' , 'mumbai');
+
+SELECT * FROM customers;
+
+SELECT state,
+    COUNT(*) as total_customers
+FROM customers
+GROUP BY state;
