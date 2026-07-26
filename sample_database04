@@ -1,0 +1,129 @@
+CREATE DATABASE ecommerce_db;
+USE ecommerce_db;
+
+-- Customers
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_name VARCHAR(100),
+    city VARCHAR(100),
+    state VARCHAR(100),
+    age INT
+);
+
+-- Categories
+CREATE TABLE categories (
+    category_id INT PRIMARY KEY AUTO_INCREMENT,
+    category_name VARCHAR(100)
+);
+
+-- Products
+CREATE TABLE products (
+    product_id INT PRIMARY KEY AUTO_INCREMENT,
+    product_name VARCHAR(100),
+    category_id INT,
+    price DECIMAL(10,2),
+    stock INT,
+    FOREIGN KEY (category_id) REFERENCES categories(category_id)
+);
+
+-- Orders
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_id INT,
+    order_date DATE,
+    total_amount DECIMAL(10,2),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+
+-- Order Details
+CREATE TABLE order_details (
+    order_detail_id INT PRIMARY KEY AUTO_INCREMENT,
+    order_id INT,
+    product_id INT,
+    quantity INT,
+    price DECIMAL(10,2),
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+
+-- Employees
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY AUTO_INCREMENT,
+    employee_name VARCHAR(100),
+    department VARCHAR(100),
+    salary DECIMAL(10,2)
+);
+
+INSERT INTO categories(category_name)
+VALUES
+('Electronics'),
+('Fashion'),
+('Books'),
+('Furniture'),
+('Sports');
+
+INSERT INTO customers(customer_name,city,state,age)
+VALUES
+('Rahul','Delhi','Delhi',22),
+('Priya','Mumbai','Maharashtra',25),
+('Amit','Pune','Maharashtra',28),
+('Neha','Jaipur','Rajasthan',24),
+('Rohit','Lucknow','UP',30),
+('Simran','Chandigarh','Punjab',23),
+('Karan','Delhi','Delhi',29),
+('Anjali','Bhopal','MP',27),
+('Arjun','Indore','MP',31),
+('Sneha','Patna','Bihar',26);
+
+INSERT INTO products(product_name,category_id,price,stock)
+VALUES
+('Laptop',1,65000,15),
+('Mouse',1,700,120),
+('Keyboard',1,1500,80),
+('T-Shirt',2,800,150),
+('Jeans',2,1800,90),
+('SQL Book',3,650,50),
+('Python Book',3,900,40),
+('Chair',4,3500,20),
+('Table',4,6000,15),
+('Cricket Bat',5,2500,35);
+
+INSERT INTO orders(customer_id,order_date,total_amount)
+VALUES
+(1,'2026-07-01',65700),
+(2,'2026-07-02',800),
+(3,'2026-07-03',1800),
+(4,'2026-07-04',650),
+(5,'2026-07-05',3500),
+(6,'2026-07-06',2500),
+(7,'2026-07-07',900),
+(8,'2026-07-08',6000),
+(9,'2026-07-09',1500),
+(10,'2026-07-10',700);
+
+INSERT INTO order_details(order_id,product_id,quantity,price)
+VALUES
+(1,1,1,65000),
+(1,2,1,700),
+(2,4,1,800),
+(3,5,1,1800),
+(4,6,1,650),
+(5,8,1,3500),
+(6,10,1,2500),
+(7,7,1,900),
+(8,9,1,6000),
+(9,3,1,1500),
+(10,2,1,700);
+
+INSERT INTO employees(employee_name,department,salary)
+VALUES
+('Aman','Sales',45000),
+('Riya','Sales',52000),
+('Mohit','IT',70000),
+('Kunal','IT',68000),
+('Sakshi','HR',50000),
+('Ankit','HR',47000),
+('Deepak','Finance',80000),
+('Pooja','Finance',76000),
+('Nitin','Marketing',55000),
+('Megha','Marketing',53000);
