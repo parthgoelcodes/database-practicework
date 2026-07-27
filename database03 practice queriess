@@ -47,3 +47,28 @@ SELECT *
     FROM products
     WHERE price > 3000;
 drop database jmit;
+
+SELECT category_id,
+COUNT(product_id) as TOTAL_PRODUCTS
+FROM products
+GROUP BY category_id
+HAVING TOTAL_PRODUCTS>2;
+
+SELECT state ,
+     COUNT(customer_id) AS total_customers_in_state
+FROM customers
+GROUP BY state
+HAVING total_customers_in_state>=2;
+
+SELECT department,
+    AVG(salary) as AVERAGE_SALARY
+FROM employees
+GROUP BY department
+HAVING AVERAGE_SALARY >55000;
+
+SELECT product_name,price
+FROM products
+WHERE price>(SELECT AVG(price)
+FROM products);
+
+
