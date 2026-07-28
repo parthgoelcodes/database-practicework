@@ -72,3 +72,15 @@ WHERE price>(SELECT AVG(price)
 FROM products);
 
 SELECT * FROM employees;
+
+
+SELECT department,
+    AVG(salary) as AVERAGE_SALARY
+FROM employees
+GROUP BY department
+HAVING AVERAGE_SALARY >55000;
+
+SELECT product_name,price
+FROM products
+WHERE price>(SELECT AVG(price)
+FROM products);
