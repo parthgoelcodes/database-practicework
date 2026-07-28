@@ -71,4 +71,4 @@ FROM products
 WHERE price>(SELECT AVG(price)
 FROM products);
 
-
+SELECT * FROM employees;
