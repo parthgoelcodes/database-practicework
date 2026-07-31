@@ -1,0 +1,43 @@
+CREATE DATABASE school_db;
+USE school_db;
+
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    gender VARCHAR(10),
+    age INT,
+    class VARCHAR(10),
+    city VARCHAR(50)
+);
+
+CREATE TABLE teachers (
+    teacher_id INT PRIMARY KEY,
+    teacher_name VARCHAR(50),
+    subject VARCHAR(50),
+    salary DECIMAL(10,2)
+);
+
+CREATE TABLE subjects (
+    subject_id INT PRIMARY KEY,
+    subject_name VARCHAR(50),
+    teacher_id INT,
+    FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_id)
+);
+
+CREATE TABLE marks (
+    mark_id INT PRIMARY KEY,
+    student_id INT,
+    subject_id INT,
+    marks INT,
+    exam_type VARCHAR(20),
+    FOREIGN KEY (student_id) REFERENCES students(student_id),
+    FOREIGN KEY (subject_id) REFERENCES subjects(subject_id)
+);
+
+CREATE TABLE attendance (
+    attendance_id INT PRIMARY KEY,
+    student_id INT,
+    attendance_date DATE,
+    status VARCHAR(10),
+    FOREIGN KEY (student_id) REFERENCES students(student_id)
+);
