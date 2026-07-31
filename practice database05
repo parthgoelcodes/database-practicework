@@ -41,3 +41,58 @@ CREATE TABLE attendance (
     status VARCHAR(10),
     FOREIGN KEY (student_id) REFERENCES students(student_id)
 );
+
+INSERT INTO students VALUES
+(101,'Aarav','Male',15,'10A','Panipat'),
+(102,'Diya','Female',14,'9A','Karnal'),
+(103,'Vivaan','Male',15,'10A','Kurukshetra'),
+(104,'Ananya','Female',16,'11A','Panipat'),
+(105,'Kabir','Male',17,'12A','Delhi'),
+(106,'Meera','Female',16,'11A','Sonipat'),
+(107,'Arjun','Male',15,'10B','Rohtak'),
+(108,'Riya','Female',14,'9B','Hisar'),
+(109,'Ishaan','Male',17,'12B','Ambala'),
+(110,'Kavya','Female',15,'10B','Panipat');
+
+INSERT INTO teachers VALUES
+(1,'Rajesh Sharma','Mathematics',55000),
+(2,'Neha Gupta','Science',52000),
+(3,'Amit Verma','English',50000),
+(4,'Pooja Singh','Computer',60000),
+(5,'Sanjay Kumar','Social Science',53000);
+
+INSERT INTO subjects VALUES
+(101,'Mathematics',1),
+(102,'Science',2),
+(103,'English',3),
+(104,'Computer',4),
+(105,'Social Science',5);
+
+INSERT INTO marks VALUES
+(1,101,101,91,'Final'),
+(2,101,104,95,'Final'),
+(3,102,102,88,'Final'),
+(4,103,101,79,'Final'),
+(5,104,103,92,'Final'),
+(6,105,104,97,'Final'),
+(7,106,102,84,'Final'),
+(8,107,105,76,'Final'),
+(9,108,103,89,'Final'),
+(10,109,101,93,'Final'),
+(11,110,104,90,'Final'),
+(12,103,104,82,'Midterm'),
+(13,104,101,87,'Midterm'),
+(14,105,102,91,'Midterm'),
+(15,106,103,85,'Midterm');
+
+INSERT INTO attendance VALUES
+(1,101,'2026-07-01','Present'),
+(2,102,'2026-07-01','Absent'),
+(3,103,'2026-07-01','Present'),
+(4,104,'2026-07-01','Present'),
+(5,105,'2026-07-01','Absent'),
+(6,106,'2026-07-01','Present'),
+(7,107,'2026-07-01','Present'),
+(8,108,'2026-07-01','Present'),
+(9,109,'2026-07-01','Absent'),
+(10,110,'2026-07-01','Present');
