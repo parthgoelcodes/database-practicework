@@ -1,0 +1,19 @@
+USE window_practice;
+SELECT * FROM departments;
+SELECT * FROM employees;
+
+SELECT *,
+FIRST_VALUE(emp_name) OVER(PARTITION BY dept_id ORDER BY salary DESC) AS SALARY_VALUES
+FROM employees;
+
+SELECT *,
+FIRST_VALUE(salary) OVER(PARTITION BY dept_id ORDER BY salary DESC) AS SALARY_VALUES
+FROM employees;
+
+SELECT dept_id,salary,
+LAG(salary) OVER(ORDER BY SALARY ASC)
+FROM employees;
+
+SELECT dept_id,salary,
+LAG(salary) OVER(PARTITION BY dept_id ORDER BY salary DESC)
+FROM employees;
