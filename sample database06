@@ -1,0 +1,30 @@
+CREATE DATABASE window_practice2;
+USE window_practice2;
+
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    department VARCHAR(30),
+    city VARCHAR(30),
+    salary INT,
+    experience INT,
+    joining_date DATE,
+    performance_score INT
+);
+
+INSERT INTO employees VALUES
+(101, 'Aarav',   'IT',      'Delhi',      75000, 3, '2022-01-15', 88),
+(102, 'Priya',   'IT',      'Gurugram',   85000, 5, '2020-06-10', 92),
+(103, 'Rohan',   'IT',      'Delhi',      65000, 2, '2023-03-20', 78),
+(104, 'Ananya',  'HR',      'Chandigarh', 55000, 4, '2021-07-12', 85),
+(105, 'Vikram',  'HR',      'Delhi',      62000, 6, '2019-02-18', 90),
+(106, 'Neha',    'HR',      'Gurugram',   50000, 2, '2023-08-01', 76),
+(107, 'Karan',   'Sales',   'Delhi',      70000, 5, '2020-11-25', 89),
+(108, 'Simran',  'Sales',   'Jaipur',     72000, 4, '2021-04-15', 91),
+(109, 'Rahul',   'Sales',   'Delhi',      58000, 2, '2023-01-10', 74),
+(110, 'Isha',    'Finance', 'Mumbai',     80000, 6, '2019-09-05', 94),
+(111, 'Arjun',   'Finance', 'Delhi',      68000, 3, '2022-05-22', 82),
+(112, 'Meera',   'Finance', 'Mumbai',     68000, 4, '2021-12-01', 87),
+(113, 'Dev',     'IT',      'Noida',      75000, 4, '2021-02-11', 86),
+(114, 'Kavya',   'HR',      'Delhi',      62000, 5, '2020-08-19', 88),
+(115, 'Nitin',   'Sales',   'Jaipur',     65000, 3, '2022-09-14', 80);
